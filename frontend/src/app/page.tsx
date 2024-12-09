@@ -6,11 +6,11 @@ export default function Home() {
     <main className="text-center">
       <Card>
         <CardHeader>
-          <CardTitle className="text-center">Welcome to My Games</CardTitle>
+          <CardTitle className="text-center">Welcome!</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground text-center">
-            Select a game from the sidebar to get started
+            Select an item from the sidebar to get started
           </p>
         </CardContent>
       </Card>
