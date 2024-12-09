@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { TypingInput } from '@/components/ui/typing-input'
-import { generateSentence } from './api/route'
+import { GET } from './api/route'
 
 export default function TypingGame() {
   const [words, setWords] = useState<string>('')
@@ -15,7 +15,7 @@ export default function TypingGame() {
   const [wpm, setWpm] = useState<number>(0)
 
   const startGame = useCallback(async () => {
-    const newWords = await generateSentence()
+    const newWords = await GET()
     setWords(newWords[0])
     setInput('')
     setStartTime(null)
