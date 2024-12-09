@@ -1,4 +1,4 @@
-export const sentenceList = [
+const sentenceList = [
   'The quick brown fox jumps over the lazy dog.',
   'My Mum tries to be cool by saying that she likes all the same things that I do.',
   'A purple pig and a green donkey flew a kite in the middle of the night and ended up sunburnt.',
