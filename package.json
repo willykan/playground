@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "npx": "^10.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.16.0"
   }
 }
