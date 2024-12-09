@@ -21,7 +21,7 @@ export default function TypingGame() {
     setStartTime(null)
     setIsFinished(false)
     setWpm(0)
-  }, [generateSentence])
+  }, [])
 
   const calculateWPM = (endTime: number) => {
     if (!startTime) return 0
