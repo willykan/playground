@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { TypingInput } from '@/components/ui/typing-input'
@@ -35,9 +36,9 @@ export default function TypingGame() {
     if (!startTime && value) {
       setStartTime(Date.now())
     }
-    
+
     setInput(value)
-    
+
     if (value === words) {
       const endTime = Date.now()
       setWpm(calculateWPM(endTime))
@@ -48,13 +49,12 @@ export default function TypingGame() {
   const renderWords = () => {
     return words.split('').map((char, index) => {
       let className = 'font-mono'
-      
+
       if (index < input.length) {
-        className += input[index] === char 
-          ? ' text-green-500' 
-          : ' text-red-500 bg-red-100'
+        className +=
+          input[index] === char ? ' text-green-500' : ' text-red-500 bg-red-100'
       }
-      
+
       return (
         <span key={index} className={className}>
           {char}
@@ -68,29 +68,27 @@ export default function TypingGame() {
   }, [startGame])
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4">
-      <Card className="w-full max-w-2xl">
+    <main className="max-w-2xl">
+      <Card>
         <CardHeader>
           <CardTitle className="text-center">Typing Speed Test</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="text-xl p-4 bg-muted rounded-md tracking-wide leading-relaxed">
+          <div className="bg-muted rounded-md p-4 text-xl leading-relaxed tracking-wide">
             {renderWords()}
           </div>
-          
+
           <TypingInput
             value={input}
             onChange={handleInputChange}
             disabled={isFinished}
             placeholder="Start typing..."
           />
-          
+
           {isFinished && (
-            <div className="text-center space-y-4">
+            <div className="space-y-4 text-center">
               <p className="text-2xl font-bold">Your speed: {wpm} WPM</p>
-              <Button onClick={() => startGame()}>
-                Try Again
-              </Button>
+              <Button onClick={() => startGame()}>Try Again</Button>
             </div>
           )}
         </CardContent>
